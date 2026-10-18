@@ -1,0 +1,23 @@
+[
+  {
+    "model": "Persistence (t-1)",
+    "mae": 2.6114,
+    "rmse": 3.4692,
+    "mape": 6.03,
+    "r2_score": 0.8999
+  },
+  {
+    "model": "Diurnal Profile Baseline",
+    "mae": 11.9471,
+    "rmse": 14.4129,
+    "mape": 25.72,
+    "r2_score": -0.7272
+  },
+  {
+    "model": "LSTM Predictor",
+    "mae": 3.1855,
+    "rmse": 4.884,
+    "mape": 6.24,
+    "r2_score": 0.8017
+  }
+]

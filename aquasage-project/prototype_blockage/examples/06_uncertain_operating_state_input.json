@@ -1,0 +1,55 @@
+{
+  "scenario_id": "06_uncertain_operating_state",
+  "description": "Sustained low flow observed while pump status is unknown; returns uncertain state rather than asserting blockage.",
+  "total_cycles_simulated": 5,
+  "final_cycle_input": {
+    "sensor_1_flow": 2.5,
+    "sensor_2_flow": 2.6,
+    "pump_status": "UNKNOWN",
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "reference_time": "2026-10-18T12:00:08+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 2.5,
+      "sensor_2_flow": 2.6,
+      "pump_status": "UNKNOWN",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 2.5,
+      "sensor_2_flow": 2.6,
+      "pump_status": "UNKNOWN",
+      "timestamp": "2026-10-18T12:00:02+00:00",
+      "reference_time": "2026-10-18T12:00:02+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 2.5,
+      "sensor_2_flow": 2.6,
+      "pump_status": "UNKNOWN",
+      "timestamp": "2026-10-18T12:00:04+00:00",
+      "reference_time": "2026-10-18T12:00:04+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 2.5,
+      "sensor_2_flow": 2.6,
+      "pump_status": "UNKNOWN",
+      "timestamp": "2026-10-18T12:00:06+00:00",
+      "reference_time": "2026-10-18T12:00:06+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 2.5,
+      "sensor_2_flow": 2.6,
+      "pump_status": "UNKNOWN",
+      "timestamp": "2026-10-18T12:00:08+00:00",
+      "reference_time": "2026-10-18T12:00:08+00:00",
+      "is_simulated": true
+    }
+  ]
+}

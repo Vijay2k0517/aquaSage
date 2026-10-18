@@ -1,0 +1,82 @@
+{
+  "decision_id": "DEC-29A2AFEE",
+  "timestamp": "2026-10-16T12:00:00+00:00",
+  "overall_severity": "CRITICAL",
+  "system_status": "SYSTEM_CRITICAL_EMERGENCY",
+  "compounded_escalation_active": false,
+  "escalation_reasons": [],
+  "subsystems": {
+    "flow_leak_detection": {
+      "status": "VALID",
+      "severity": "INFO",
+      "leak_suspected": false,
+      "source_type": "LIVE_TELEMETRY",
+      "evidence": {
+        "current_flow_m3h": 33.0,
+        "predicted_normal_m3h": 32.5,
+        "excess_flow_m3h": 0.5,
+        "anomaly_score": 0.4,
+        "calibrated_threshold": 2.377,
+        "persistence_hours": 0,
+        "source_type": "LIVE_TELEMETRY",
+        "leak_evidence_note": "Score represents statistical residual deviation; not guaranteed leak probability."
+      },
+      "message": "Flow patterns conform to normal diurnal model."
+    },
+    "tank_level_forecasting": {
+      "status": "VALID",
+      "severity": "CRITICAL",
+      "hazard_type": "CRITICAL_DEPLETION",
+      "source_type": "SIMULATED_HYDRAULIC_MODEL",
+      "evidence": {
+        "current_level_m": 2.7,
+        "forecast_5m_level_m": 2.35,
+        "forecast_15m_level_m": 2.05,
+        "forecast_30m_level_m": 1.82,
+        "inflow_rate_m3h": 20.0,
+        "outflow_demand_m3h": 45.0,
+        "net_flow_m3h": -25.0,
+        "is_simulated_model": true,
+        "source_type": "SIMULATED_HYDRAULIC_MODEL",
+        "simulation_disclaimer": "Tank levels and forecasts are derived from mass-balance hydraulic simulation, NOT physical level sensors."
+      },
+      "message": "Critical Tank Depletion [SIMULATED]: Projected level drops to 1.82m (<= 2.0m limit) within 30 min."
+    },
+    "water_quality_assessment": {
+      "status": "VALID",
+      "severity": "INFO",
+      "source_type": "FIELD_GRAB_SAMPLE",
+      "evidence": {
+        "station_id": "STATION_02",
+        "ph": 7.3,
+        "turbidity_ntu": 1.5,
+        "conductivity_us_cm": 460.0,
+        "dissolved_oxygen_mg_l": 8.0,
+        "tds_mg_l": null,
+        "violations_count": 0,
+        "violations": [],
+        "violation_details": [],
+        "sample_age_days": 0.0,
+        "source_type": "FIELD_GRAB_SAMPLE",
+        "disclaimer": "Exploratory field grab sample screening (N=29 baseline). Does NOT certify microbiological potable safety."
+      },
+      "message": "Water quality parameters conform to WHO/EPA potable guidelines and aesthetic standards."
+    }
+  },
+  "consolidated_evidence": [
+    "FLOW: Flow patterns conform to normal diurnal model.",
+    "TANK: Critical Tank Depletion [SIMULATED]: Projected level drops to 1.82m (<= 2.0m limit) within 30 min.",
+    "WATER_QUALITY: Water quality parameters conform to WHO/EPA potable guidelines and aesthetic standards."
+  ],
+  "prioritized_operator_actions": [
+    {
+      "priority": 1,
+      "category": "STORAGE_CONTROL",
+      "action": "Override pump station refill rate to maximum (52 m\u00b3/h); throttle pressure reducing valves on outflow mains.",
+      "rationale": "Tank level projected at 1.82m within 30 min (<= 2.0m limit).",
+      "safety_critical": true,
+      "requires_human_confirmation": true,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    }
+  ]
+}

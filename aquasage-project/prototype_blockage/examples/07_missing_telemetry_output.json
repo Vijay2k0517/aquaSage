@@ -1,0 +1,35 @@
+{
+  "status": "INSUFFICIENT_DATA",
+  "severity": "WARNING",
+  "reason": "Both upstream (S1) and downstream (S2) sensor readings are missing.",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "sensor_1_flow": null,
+    "sensor_2_flow": null,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": null,
+    "relative_imbalance_pct": null,
+    "representative_flow_l_per_min": null
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 0,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 1,
+    "category": "TELEMETRY_DIAGNOSTIC",
+    "action": "Verify wiring, 5V power supply, and pulse interrupt pin assignment for both YF-S201 sensors.",
+    "rationale": "No flow pulse data received from either sensor.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

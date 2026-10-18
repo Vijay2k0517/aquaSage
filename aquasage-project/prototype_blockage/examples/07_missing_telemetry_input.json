@@ -1,0 +1,23 @@
+{
+  "scenario_id": "07_missing_telemetry",
+  "description": "Both upstream and downstream sensor readings missing; triggers diagnostic directive.",
+  "total_cycles_simulated": 1,
+  "final_cycle_input": {
+    "sensor_1_flow": null,
+    "sensor_2_flow": null,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "reference_time": "2026-10-18T12:00:00+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": null,
+      "sensor_2_flow": null,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    }
+  ]
+}

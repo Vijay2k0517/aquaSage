@@ -1,0 +1,62 @@
+[
+  {
+    "scenario": "01_nominal_flow_pump_running",
+    "status": "NOMINAL",
+    "severity": "INFO",
+    "action_category": "ROUTINE_MONITORING"
+  },
+  {
+    "scenario": "02_nominal_idle_pump_off",
+    "status": "NOMINAL_IDLE",
+    "severity": "INFO",
+    "action_category": "ROUTINE_STANDBY"
+  },
+  {
+    "scenario": "03_sustained_low_flow_blockage",
+    "status": "SUSTAINED_LOW_FLOW",
+    "severity": "WARNING",
+    "action_category": "MANUAL_PIPE_INSPECTION"
+  },
+  {
+    "scenario": "04_transient_low_flow_recovery",
+    "status": "NOMINAL",
+    "severity": "INFO",
+    "action_category": "ROUTINE_MONITORING"
+  },
+  {
+    "scenario": "05_sustained_sensor_imbalance",
+    "status": "SENSOR_IMBALANCE",
+    "severity": "ADVISORY",
+    "action_category": "SENSOR_CALIBRATION_CHECK"
+  },
+  {
+    "scenario": "06_uncertain_operating_state",
+    "status": "UNCERTAIN_OPERATING_STATE",
+    "severity": "ADVISORY",
+    "action_category": "PUMP_STATUS_VERIFICATION"
+  },
+  {
+    "scenario": "07_missing_telemetry",
+    "status": "INSUFFICIENT_DATA",
+    "severity": "WARNING",
+    "action_category": "TELEMETRY_DIAGNOSTIC"
+  },
+  {
+    "scenario": "08_invalid_negative_flow",
+    "status": "INVALID_READING",
+    "severity": "WARNING",
+    "action_category": "INSTRUMENT_DIAGNOSTIC"
+  },
+  {
+    "scenario": "09_unstable_jitter_telemetry",
+    "status": "UNSTABLE_TELEMETRY",
+    "severity": "ADVISORY",
+    "action_category": "SIGNAL_STABILIZATION"
+  },
+  {
+    "scenario": "10_stale_telemetry_latency",
+    "status": "STALE_TELEMETRY",
+    "severity": "ADVISORY",
+    "action_category": "COMMUNICATION_WATCH"
+  }
+]

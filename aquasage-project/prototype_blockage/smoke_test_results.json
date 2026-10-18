@@ -1,0 +1,159 @@
+{
+  "timestamp_utc": "2026-10-18T02:22:31.483938+00:00",
+  "total_scenarios_tested": 10,
+  "total_passed": 10,
+  "total_failed": 0,
+  "suite_status": "SMOKE_TEST_PASSED",
+  "scenarios": [
+    {
+      "scenario": "01_nominal_flow_pump_running",
+      "description": "Baseline flow (~12 L/min) with pump running",
+      "status": "PASSED",
+      "resulting_blockage_status": "NOMINAL",
+      "resulting_severity": "INFO",
+      "action_category": "ROUTINE_MONITORING",
+      "action_text": "Maintain standard bench supervisory telemetry polling; straight-pipe prototype is operating nominally.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "02_nominal_idle_pump_off",
+      "description": "Zero flow with pump off",
+      "status": "PASSED",
+      "resulting_blockage_status": "NOMINAL_IDLE",
+      "resulting_severity": "INFO",
+      "action_category": "ROUTINE_STANDBY",
+      "action_text": "Maintain standard bench standby monitoring; pump is currently inactive.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "03_sustained_low_flow_blockage",
+      "description": "Low flow for 5 consecutive cycles with active pump",
+      "status": "PASSED",
+      "resulting_blockage_status": "SUSTAINED_LOW_FLOW",
+      "resulting_severity": "WARNING",
+      "action_category": "MANUAL_PIPE_INSPECTION",
+      "action_text": "Check upstream pump suction strainer for debris clogging; inspect inline manual ball valves and check for partial pipe obstruction.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "04_transient_low_flow_recovery",
+      "description": "Transient dip followed by recovery resets persistence",
+      "status": "PASSED",
+      "resulting_blockage_status": "NOMINAL",
+      "resulting_severity": "INFO",
+      "action_category": "ROUTINE_MONITORING",
+      "action_text": "Maintain standard bench supervisory telemetry polling; straight-pipe prototype is operating nominally.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "05_sustained_sensor_imbalance",
+      "description": "Discrepancy (12 vs 8 L/min) sustained 3 cycles on straight pipe",
+      "status": "PASSED",
+      "resulting_blockage_status": "SENSOR_IMBALANCE",
+      "resulting_severity": "ADVISORY",
+      "action_category": "SENSOR_CALIBRATION_CHECK",
+      "action_text": "Inspect pinwheels on both YF-S201 sensors for mechanical binding or scale; cross-calibrate pulse factors against timed volumetric bucket test.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "06_uncertain_operating_state",
+      "description": "Low flow with unknown pump status yields uncertain state",
+      "status": "PASSED",
+      "resulting_blockage_status": "UNCERTAIN_OPERATING_STATE",
+      "resulting_severity": "ADVISORY",
+      "action_category": "PUMP_STATUS_VERIFICATION",
+      "action_text": "Verify pump electrical relay / power supply status before dispatching physical pipe inspection.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "07_missing_telemetry",
+      "description": "Both sensor readings null triggers telemetry diagnostic",
+      "status": "PASSED",
+      "resulting_blockage_status": "INSUFFICIENT_DATA",
+      "resulting_severity": "WARNING",
+      "action_category": "TELEMETRY_DIAGNOSTIC",
+      "action_text": "Verify wiring, 5V power supply, and pulse interrupt pin assignment for both YF-S201 sensors.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "08_invalid_negative_flow",
+      "description": "Negative flow reading rejected as physical impossibility",
+      "status": "PASSED",
+      "resulting_blockage_status": "INVALID_READING",
+      "resulting_severity": "WARNING",
+      "action_category": "INSTRUMENT_DIAGNOSTIC",
+      "action_text": "Inspect YF-S201 sensor pinwheel for foreign body lockup; check pull-up resistor and ADC/pulse counter calibration.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "09_unstable_jitter_telemetry",
+      "description": "Erratic pulse standard deviation > 3.0 L/min detected",
+      "status": "PASSED",
+      "resulting_blockage_status": "UNSTABLE_TELEMETRY",
+      "resulting_severity": "ADVISORY",
+      "action_category": "SIGNAL_STABILIZATION",
+      "action_text": "Inspect pump suction for air entrapment/cavitation; check sensor grounding to eliminate electrical EMI.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    },
+    {
+      "scenario": "10_stale_telemetry_latency",
+      "description": "Telemetry latency (25s) exceeding staleness limit (15s)",
+      "status": "PASSED",
+      "resulting_blockage_status": "STALE_TELEMETRY",
+      "resulting_severity": "ADVISORY",
+      "action_category": "COMMUNICATION_WATCH",
+      "action_text": "Verify microcontroller serial/MQTT transmission cycle rate and Wi-Fi/UART buffer latency.",
+      "is_simulated": true,
+      "safety_governance": {
+        "safety_critical": false,
+        "requires_human_confirmation": true,
+        "execution_mode": "DECISION_SUPPORT_ONLY"
+      }
+    }
+  ]
+}

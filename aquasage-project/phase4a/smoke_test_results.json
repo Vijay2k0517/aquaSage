@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-10-18T02:22:18.071159+00:00",
+  "contracts": {
+    "contracts_verified": [
+      "chronological_rolling_persistence_and_reset",
+      "missing_value_non_imputation",
+      "source_type_tag_segregation",
+      "safety_governance_metadata_presence"
+    ],
+    "status": "ALL_CONTRACTS_VERIFIED"
+  },
+  "scenarios": [
+    {
+      "scenario": "01_nominal_pipeline",
+      "status": "PASSED",
+      "overall_severity": "INFO",
+      "system_status": "ALL_SYSTEMS_NOMINAL",
+      "actions_count": 1,
+      "flow_persistence": 0,
+      "flow_score": 1.072,
+      "tank_level_m": 6.05,
+      "decision_id": "DEC-1A4CB110"
+    },
+    {
+      "scenario": "02_suspected_leak",
+      "status": "PASSED",
+      "overall_severity": "WARNING",
+      "system_status": "OPERATIONAL_WARNING",
+      "leak_suspected": true,
+      "persistence_hours": 7,
+      "anomaly_score": 3.436,
+      "action_category": "LEAKAGE_REPAIR",
+      "decision_id": "DEC-52A3A645"
+    },
+    {
+      "scenario": "03_low_tank_hazard",
+      "status": "PASSED",
+      "overall_severity": "CRITICAL",
+      "system_status": "SYSTEM_CRITICAL_EMERGENCY",
+      "hazard_type": "CRITICAL_DEPLETION",
+      "forecast_30m": 1.82,
+      "action": "Override pump station refill rate to maximum (52 m\u00b3/h); throttle pressure reducing valves on outflow mains.",
+      "decision_id": "DEC-E36512BD"
+    },
+    {
+      "scenario": "04_stale_wq_safeguard",
+      "status": "PASSED",
+      "overall_severity": "ADVISORY",
+      "system_status": "DEGRADED_TELEMETRY",
+      "wq_status": "STALE",
+      "sample_age_days": 812.5,
+      "action_category": "WATER_QUALITY_RESAMPLING",
+      "decision_id": "DEC-D067B373"
+    },
+    {
+      "scenario": "05_missing_conflicting_telemetry",
+      "status": "PASSED",
+      "overall_severity": "WARNING",
+      "system_status": "DEGRADED_TELEMETRY",
+      "flow_status": "INSUFFICIENT_DATA",
+      "tank_status": "CONFLICTING",
+      "wq_status": "UNCOLLECTED_SAMPLE",
+      "actions": [
+        "INSTRUMENT_DIAGNOSTIC",
+        "STORAGE_CONTROL",
+        "INTAKE_INSPECTION"
+      ],
+      "decision_id": "DEC-F568CAFA"
+    },
+    {
+      "scenario": "06_compounded_crisis",
+      "status": "PASSED",
+      "overall_severity": "CRITICAL",
+      "system_status": "SYSTEM_CRITICAL_EMERGENCY",
+      "compounded_active": true,
+      "p1_action_category": "COMPOUNDED_SYSTEM_EMERGENCY",
+      "decision_id": "DEC-6D68F7D7"
+    }
+  ],
+  "total_scenarios_tested": 6,
+  "total_passed": 6,
+  "total_failed": 0,
+  "pipeline_status": "SMOKE_TEST_PASSED"
+}

@@ -1,0 +1,23 @@
+{
+  "scenario_id": "02_nominal_idle_pump_off",
+  "description": "Expected zero/trace flow when the pump relay is turned off.",
+  "total_cycles_simulated": 1,
+  "final_cycle_input": {
+    "sensor_1_flow": 0.0,
+    "sensor_2_flow": 0.0,
+    "pump_status": "PUMP_OFF",
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "reference_time": "2026-10-18T12:00:00+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 0.0,
+      "sensor_2_flow": 0.0,
+      "pump_status": "PUMP_OFF",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "INVALID_READING",
+  "severity": "WARNING",
+  "reason": "Invalid physical reading detected: S1 reading (-2.5 L/min) is negative (physically impossible).",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "sensor_1_flow": -2.5,
+    "sensor_2_flow": 10.0,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": null,
+    "relative_imbalance_pct": null,
+    "representative_flow_l_per_min": null
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 0,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 1,
+    "category": "INSTRUMENT_DIAGNOSTIC",
+    "action": "Inspect YF-S201 sensor pinwheel for foreign body lockup; check pull-up resistor and ADC/pulse counter calibration.",
+    "rationale": "Reported pulse frequencies violate physical sensor operating boundaries.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "scenario_id": "03_sustained_low_flow_blockage",
+  "description": "Low flow (< 6.0 L/min) persisting for 5 consecutive cycles with active pump.",
+  "total_cycles_simulated": 5,
+  "final_cycle_input": {
+    "sensor_1_flow": 3.5,
+    "sensor_2_flow": 3.4,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "reference_time": "2026-10-18T12:00:08+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 3.5,
+      "sensor_2_flow": 3.4,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 3.5,
+      "sensor_2_flow": 3.4,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:02+00:00",
+      "reference_time": "2026-10-18T12:00:02+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 3.5,
+      "sensor_2_flow": 3.4,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:04+00:00",
+      "reference_time": "2026-10-18T12:00:04+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 3.5,
+      "sensor_2_flow": 3.4,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:06+00:00",
+      "reference_time": "2026-10-18T12:00:06+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 3.5,
+      "sensor_2_flow": 3.4,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:08+00:00",
+      "reference_time": "2026-10-18T12:00:08+00:00",
+      "is_simulated": true
+    }
+  ]
+}

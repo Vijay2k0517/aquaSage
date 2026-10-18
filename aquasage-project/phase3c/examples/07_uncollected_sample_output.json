@@ -1,0 +1,70 @@
+{
+  "decision_id": "DEC-3C6F9316",
+  "timestamp": "2026-10-16T12:00:00+00:00",
+  "overall_severity": "WARNING",
+  "system_status": "OPERATIONAL_WARNING",
+  "compounded_escalation_active": false,
+  "escalation_reasons": [],
+  "subsystems": {
+    "flow_leak_detection": {
+      "status": "VALID",
+      "severity": "INFO",
+      "leak_suspected": false,
+      "source_type": "LIVE_TELEMETRY",
+      "evidence": {
+        "current_flow_m3h": 33.0,
+        "predicted_normal_m3h": 32.8,
+        "excess_flow_m3h": 0.2,
+        "anomaly_score": 0.4,
+        "calibrated_threshold": 2.377,
+        "persistence_hours": 0,
+        "source_type": "LIVE_TELEMETRY",
+        "leak_evidence_note": "Score represents statistical residual deviation; not guaranteed leak probability."
+      },
+      "message": "Flow patterns conform to normal diurnal model."
+    },
+    "tank_level_forecasting": {
+      "status": "VALID",
+      "severity": "INFO",
+      "hazard_type": "NOMINAL",
+      "source_type": "SIMULATED_HYDRAULIC_MODEL",
+      "evidence": {
+        "current_level_m": 5.5,
+        "forecast_5m_level_m": 5.48,
+        "forecast_15m_level_m": 5.45,
+        "forecast_30m_level_m": 5.4,
+        "inflow_rate_m3h": 32.0,
+        "outflow_demand_m3h": 33.0,
+        "net_flow_m3h": -1.0,
+        "is_simulated_model": true,
+        "source_type": "SIMULATED_HYDRAULIC_MODEL",
+        "simulation_disclaimer": "Tank levels and forecasts are derived from mass-balance hydraulic simulation, NOT physical level sensors."
+      },
+      "message": "Tank storage nominal [SIMULATED]: Level steady at 5.5m."
+    },
+    "water_quality_assessment": {
+      "status": "UNCOLLECTED_SAMPLE",
+      "severity": "WARNING",
+      "source_type": "FIELD_GRAB_SAMPLE",
+      "station_id": "STATION_07",
+      "uncollected_reason": "Water level is too low to collect sample",
+      "message": "Field sample uncollected at STATION_07: 'Water level is too low to collect sample'. Intake inspection required."
+    }
+  },
+  "consolidated_evidence": [
+    "FLOW: Flow patterns conform to normal diurnal model.",
+    "TANK: Tank storage nominal [SIMULATED]: Level steady at 5.5m.",
+    "WATER_QUALITY: Field sample uncollected at STATION_07: 'Water level is too low to collect sample'. Intake inspection required."
+  ],
+  "prioritized_operator_actions": [
+    {
+      "priority": 1,
+      "category": "INTAKE_INSPECTION",
+      "action": "Inspect sampling well intake level and depth sensor; rectify low water intake restriction.",
+      "rationale": "Field sample uncollected at STATION_07: 'Water level is too low to collect sample'. Intake inspection required.",
+      "safety_critical": false,
+      "requires_human_confirmation": false,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    }
+  ]
+}

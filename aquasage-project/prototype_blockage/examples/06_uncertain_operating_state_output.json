@@ -1,0 +1,35 @@
+{
+  "status": "UNCERTAIN_OPERATING_STATE",
+  "severity": "ADVISORY",
+  "reason": "Sustained low flow (2.55 L/min) observed, but pump operating status is UNKNOWN. Cannot distinguish between unpowered pump idle state and active-duty hydraulic blockage.",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "sensor_1_flow": 2.5,
+    "sensor_2_flow": 2.6,
+    "flow_unit": "L/min",
+    "pump_status": "UNKNOWN",
+    "flow_difference_l_per_min": 0.1,
+    "relative_imbalance_pct": 3.8,
+    "representative_flow_l_per_min": 2.55
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 5,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 2,
+    "category": "PUMP_STATUS_VERIFICATION",
+    "action": "Verify pump electrical relay / power supply status before dispatching physical pipe inspection.",
+    "rationale": "Low flow is expected when pump is powered off; pump running state must be confirmed before claiming blockage.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

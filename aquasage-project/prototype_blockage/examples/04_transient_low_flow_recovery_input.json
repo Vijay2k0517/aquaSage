@@ -1,0 +1,47 @@
+{
+  "scenario_id": "04_transient_low_flow_recovery",
+  "description": "Transient flow dip for 3 cycles followed by complete recovery to nominal flow.",
+  "total_cycles_simulated": 4,
+  "final_cycle_input": {
+    "sensor_1_flow": 12.0,
+    "sensor_2_flow": 11.8,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "reference_time": "2026-10-18T12:00:08+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 4.0,
+      "sensor_2_flow": 4.1,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 4.0,
+      "sensor_2_flow": 4.1,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:02+00:00",
+      "reference_time": "2026-10-18T12:00:02+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 4.0,
+      "sensor_2_flow": 4.1,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:04+00:00",
+      "reference_time": "2026-10-18T12:00:04+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 12.0,
+      "sensor_2_flow": 11.8,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:08+00:00",
+      "reference_time": "2026-10-18T12:00:08+00:00",
+      "is_simulated": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "NOMINAL",
+  "severity": "INFO",
+  "reason": "Nominal flow: average flow (11.90 L/min) conforms to operating baseline (12.0 L/min).",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "sensor_1_flow": 12.0,
+    "sensor_2_flow": 11.8,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": 0.2,
+    "relative_imbalance_pct": 1.7,
+    "representative_flow_l_per_min": 11.9
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 0,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 3,
+    "category": "ROUTINE_MONITORING",
+    "action": "Maintain standard bench supervisory telemetry polling; straight-pipe prototype is operating nominally.",
+    "rationale": "Sensors agree within tolerance and flow is consistent with operating mode.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

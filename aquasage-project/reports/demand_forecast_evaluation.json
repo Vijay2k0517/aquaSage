@@ -1,0 +1,14 @@
+{
+  "evaluation_target": "24-Hour Forward Demand Forecast on Area 1 Test Split",
+  "test_samples": 6384,
+  "persistence_flat_baseline": {
+    "mae": 6.7366,
+    "rmse": 7.9333
+  },
+  "scaled_diurnal_forecaster": {
+    "mae": 3.9547,
+    "rmse": 5.2963,
+    "improvement_mae_pct": 41.3,
+    "improvement_rmse_pct": 33.24
+  }
+}

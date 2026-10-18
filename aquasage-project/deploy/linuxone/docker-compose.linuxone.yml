@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  aquasage-api:
+    build:
+      context: ../..
+      dockerfile: deploy/linuxone/Dockerfile.linuxone
+    image: aquasage-backend:linuxone-latest
+    container_name: aquasage-linuxone-core
+    restart: always
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      - ENVIRONMENT=production
+      - PROJECT_NAME=AquaSage Rural Infrastructure Monitor
+      - VERSION=1.0.0
+      - DATABASE_URL=${DATABASE_URL:-postgresql+asyncpg://aquasage:secure_prod_pass@postgres:5432/aquasage_db}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
+      - ENABLE_REDIS=true
+      - SECRET_KEY=${SECRET_KEY:?SECRET_KEY must be provided in production}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=1440
+      - BACKEND_CORS_ORIGINS=["*"]
+      - SIMULATOR_MODE=false
+      - OMP_NUM_THREADS=4
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - model_storage:/app/models:ro
+      - logs_storage:/app/backend/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: aquasage-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-aquasage}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secure_prod_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-aquasage_db}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-aquasage} -d ${POSTGRES_DB:-aquasage_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: aquasage-redis
+    restart: always
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
+  model_storage:
+  logs_storage:

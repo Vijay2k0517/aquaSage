@@ -1,0 +1,23 @@
+{
+  "scenario_id": "01_nominal_flow_pump_running",
+  "description": "Nominal flow conforming to baseline (12.0 L/min) with pump running.",
+  "total_cycles_simulated": 1,
+  "final_cycle_input": {
+    "sensor_1_flow": 12.1,
+    "sensor_2_flow": 11.9,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "reference_time": "2026-10-18T12:00:00+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 12.1,
+      "sensor_2_flow": 11.9,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    }
+  ]
+}

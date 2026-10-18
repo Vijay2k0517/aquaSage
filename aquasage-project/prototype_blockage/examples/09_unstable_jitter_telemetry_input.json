@@ -1,0 +1,55 @@
+{
+  "scenario_id": "09_unstable_jitter_telemetry",
+  "description": "Erratic pulse jitter exceeding rolling standard deviation stability limit.",
+  "total_cycles_simulated": 5,
+  "final_cycle_input": {
+    "sensor_1_flow": 14.0,
+    "sensor_2_flow": 12.0,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "reference_time": "2026-10-18T12:00:08+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": 12.0,
+      "sensor_2_flow": 12.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 3.0,
+      "sensor_2_flow": 12.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:02+00:00",
+      "reference_time": "2026-10-18T12:00:02+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 15.0,
+      "sensor_2_flow": 12.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:04+00:00",
+      "reference_time": "2026-10-18T12:00:04+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 2.0,
+      "sensor_2_flow": 12.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:06+00:00",
+      "reference_time": "2026-10-18T12:00:06+00:00",
+      "is_simulated": true
+    },
+    {
+      "sensor_1_flow": 14.0,
+      "sensor_2_flow": 12.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:08+00:00",
+      "reference_time": "2026-10-18T12:00:08+00:00",
+      "is_simulated": true
+    }
+  ]
+}

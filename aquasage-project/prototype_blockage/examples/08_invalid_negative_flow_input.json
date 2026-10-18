@@ -1,0 +1,23 @@
+{
+  "scenario_id": "08_invalid_negative_flow",
+  "description": "Physically impossible negative flow reading rejected as instrument glitch.",
+  "total_cycles_simulated": 1,
+  "final_cycle_input": {
+    "sensor_1_flow": -2.5,
+    "sensor_2_flow": 10.0,
+    "pump_status": "PUMP_RUNNING",
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "reference_time": "2026-10-18T12:00:00+00:00",
+    "is_simulated": true
+  },
+  "all_cycle_inputs": [
+    {
+      "sensor_1_flow": -2.5,
+      "sensor_2_flow": 10.0,
+      "pump_status": "PUMP_RUNNING",
+      "timestamp": "2026-10-18T12:00:00+00:00",
+      "reference_time": "2026-10-18T12:00:00+00:00",
+      "is_simulated": true
+    }
+  ]
+}

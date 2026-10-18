@@ -1,0 +1,82 @@
+{
+  "decision_id": "DEC-589F57F1",
+  "timestamp": "2026-10-16T12:00:00+00:00",
+  "overall_severity": "WARNING",
+  "system_status": "OPERATIONAL_WARNING",
+  "compounded_escalation_active": false,
+  "escalation_reasons": [],
+  "subsystems": {
+    "flow_leak_detection": {
+      "status": "VALID",
+      "severity": "WARNING",
+      "leak_suspected": true,
+      "source_type": "LIVE_TELEMETRY",
+      "evidence": {
+        "current_flow_m3h": 44.0,
+        "predicted_normal_m3h": 33.0,
+        "excess_flow_m3h": 11.0,
+        "anomaly_score": 3.45,
+        "calibrated_threshold": 2.377,
+        "persistence_hours": 8,
+        "source_type": "LIVE_TELEMETRY",
+        "leak_evidence_note": "Score represents statistical residual deviation; not guaranteed leak probability."
+      },
+      "message": "Warning: sustained flow deviation (+11.0 m\u00b3/h) over 8 hrs."
+    },
+    "tank_level_forecasting": {
+      "status": "VALID",
+      "severity": "INFO",
+      "hazard_type": "NOMINAL",
+      "source_type": "SIMULATED_HYDRAULIC_MODEL",
+      "evidence": {
+        "current_level_m": 5.8,
+        "forecast_5m_level_m": 5.75,
+        "forecast_15m_level_m": 5.7,
+        "forecast_30m_level_m": 5.65,
+        "inflow_rate_m3h": 35.0,
+        "outflow_demand_m3h": 37.0,
+        "net_flow_m3h": -2.0,
+        "is_simulated_model": true,
+        "source_type": "SIMULATED_HYDRAULIC_MODEL",
+        "simulation_disclaimer": "Tank levels and forecasts are derived from mass-balance hydraulic simulation, NOT physical level sensors."
+      },
+      "message": "Tank storage nominal [SIMULATED]: Level steady at 5.8m."
+    },
+    "water_quality_assessment": {
+      "status": "VALID",
+      "severity": "INFO",
+      "source_type": "FIELD_GRAB_SAMPLE",
+      "evidence": {
+        "station_id": "STATION_01",
+        "ph": 7.2,
+        "turbidity_ntu": 1.8,
+        "conductivity_us_cm": 480.0,
+        "dissolved_oxygen_mg_l": 7.8,
+        "tds_mg_l": null,
+        "violations_count": 0,
+        "violations": [],
+        "violation_details": [],
+        "sample_age_days": 0.0,
+        "source_type": "FIELD_GRAB_SAMPLE",
+        "disclaimer": "Exploratory field grab sample screening (N=29 baseline). Does NOT certify microbiological potable safety."
+      },
+      "message": "Water quality parameters conform to WHO/EPA potable guidelines and aesthetic standards."
+    }
+  },
+  "consolidated_evidence": [
+    "FLOW: Warning: sustained flow deviation (+11.0 m\u00b3/h) over 8 hrs.",
+    "TANK: Tank storage nominal [SIMULATED]: Level steady at 5.8m.",
+    "WATER_QUALITY: Water quality parameters conform to WHO/EPA potable guidelines and aesthetic standards."
+  ],
+  "prioritized_operator_actions": [
+    {
+      "priority": 1,
+      "category": "LEAKAGE_REPAIR",
+      "action": "Dispatch acoustic ground-microphone leak inspection crew to Area 1 sector; isolate zone boundary valve V-102.",
+      "rationale": "Warning: sustained flow deviation (+11.0 m\u00b3/h) over 8 hrs.",
+      "safety_critical": true,
+      "requires_human_confirmation": true,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "decision_id": "DEC-9625BED9",
+  "timestamp": "2026-10-16T12:00:00+00:00",
+  "overall_severity": "CRITICAL",
+  "system_status": "SYSTEM_CRITICAL_EMERGENCY",
+  "compounded_escalation_active": false,
+  "escalation_reasons": [],
+  "subsystems": {
+    "flow_leak_detection": {
+      "status": "VALID",
+      "severity": "INFO",
+      "leak_suspected": false,
+      "source_type": "LIVE_TELEMETRY",
+      "evidence": {
+        "current_flow_m3h": 31.0,
+        "predicted_normal_m3h": 31.5,
+        "excess_flow_m3h": 0.0,
+        "anomaly_score": 0.3,
+        "calibrated_threshold": 2.377,
+        "persistence_hours": 0,
+        "source_type": "LIVE_TELEMETRY",
+        "leak_evidence_note": "Score represents statistical residual deviation; not guaranteed leak probability."
+      },
+      "message": "Flow patterns conform to normal diurnal model."
+    },
+    "tank_level_forecasting": {
+      "status": "VALID",
+      "severity": "INFO",
+      "hazard_type": "NOMINAL",
+      "source_type": "SIMULATED_HYDRAULIC_MODEL",
+      "evidence": {
+        "current_level_m": 6.5,
+        "forecast_5m_level_m": 6.5,
+        "forecast_15m_level_m": 6.5,
+        "forecast_30m_level_m": 6.5,
+        "inflow_rate_m3h": 30.0,
+        "outflow_demand_m3h": 30.0,
+        "net_flow_m3h": 0.0,
+        "is_simulated_model": true,
+        "source_type": "SIMULATED_HYDRAULIC_MODEL",
+        "simulation_disclaimer": "Tank levels and forecasts are derived from mass-balance hydraulic simulation, NOT physical level sensors."
+      },
+      "message": "Tank storage nominal [SIMULATED]: Level steady at 6.5m."
+    },
+    "water_quality_assessment": {
+      "status": "VALID",
+      "severity": "CRITICAL",
+      "source_type": "FIELD_GRAB_SAMPLE",
+      "evidence": {
+        "station_id": "STATION_04",
+        "ph": 5.2,
+        "turbidity_ntu": 28.5,
+        "conductivity_us_cm": 1600.0,
+        "dissolved_oxygen_mg_l": 1.8,
+        "tds_mg_l": 490.0,
+        "violations_count": 4,
+        "violations": [
+          "CRITICAL: Severe Acidic/Corrosive pH 5.20 (< 5.5)",
+          "Turbidity elevated (28.5 NTU, WHO limit 5.0 NTU)",
+          "Dissolved oxygen depressed (1.80 mg/L, min target 5.0 mg/L)",
+          "Conductivity elevated (1600.0 \u00b5S/cm, limit 1000.0 \u00b5S/cm)"
+        ],
+        "violation_details": [
+          "CRITICAL: Severe Acidic/Corrosive pH 5.20 (< 5.5)",
+          "Turbidity elevated (28.5 NTU, WHO limit 5.0 NTU)",
+          "Dissolved oxygen depressed (1.80 mg/L, min target 5.0 mg/L)",
+          "Conductivity elevated (1600.0 \u00b5S/cm, limit 1000.0 \u00b5S/cm)"
+        ],
+        "sample_age_days": 0.0,
+        "source_type": "FIELD_GRAB_SAMPLE",
+        "disclaimer": "Exploratory field grab sample screening (N=29 baseline). Does NOT certify microbiological potable safety."
+      },
+      "message": "Critical water quality contamination alert: 4 guideline exceedances (CRITICAL: Severe Acidic/Corrosive pH 5.20 (< 5.5); Turbidity elevated (28.5 NTU, WHO limit 5.0 NTU))."
+    }
+  },
+  "consolidated_evidence": [
+    "FLOW: Flow patterns conform to normal diurnal model.",
+    "TANK: Tank storage nominal [SIMULATED]: Level steady at 6.5m.",
+    "WATER_QUALITY: Critical water quality contamination alert: 4 guideline exceedances (CRITICAL: Severe Acidic/Corrosive pH 5.20 (< 5.5); Turbidity elevated (28.5 NTU, WHO limit 5.0 NTU))."
+  ],
+  "prioritized_operator_actions": [
+    {
+      "priority": 1,
+      "category": "PUBLIC_HEALTH_ADVISORY",
+      "action": "Issue boil-water / non-potable drinking advisory for sector served by Station STATION_04; isolate sampling node and flush distribution line.",
+      "rationale": "Critical water quality contamination alert: 4 guideline exceedances (CRITICAL: Severe Acidic/Corrosive pH 5.20 (< 5.5); Turbidity elevated (28.5 NTU, WHO limit 5.0 NTU)).",
+      "safety_critical": true,
+      "requires_human_confirmation": true,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    }
+  ]
+}

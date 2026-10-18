@@ -1,0 +1,35 @@
+{
+  "status": "SUSTAINED_LOW_FLOW",
+  "severity": "WARNING",
+  "reason": "Pump active but flow rate (3.45 L/min) is sustained below 50% of operating baseline (12.0 L/min) for 5 consecutive cycles. Potential hydraulic constriction, closed manual valve, or pipe blockage.",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "sensor_1_flow": 3.5,
+    "sensor_2_flow": 3.4,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": 0.1,
+    "relative_imbalance_pct": 2.9,
+    "representative_flow_l_per_min": 3.45
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 5,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": true
+  },
+  "recommended_human_action": {
+    "priority": 1,
+    "category": "MANUAL_PIPE_INSPECTION",
+    "action": "Check upstream pump suction strainer for debris clogging; inspect inline manual ball valves and check for partial pipe obstruction.",
+    "rationale": "Flow rate is substantially below pump rating under sustained energized operation.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "status": "SENSOR_IMBALANCE",
+  "severity": "ADVISORY",
+  "reason": "Sustained discrepancy between upstream S1 (12.00 L/min) and downstream S2 (8.00 L/min) on unbranched straight pipe (diff=4.00 L/min, 33.3%). Indicates pinwheel friction, debris fouling, or calibration drift; does NOT confirm hydraulic blockage or pipe rupture.",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:04+00:00",
+    "sensor_1_flow": 12.0,
+    "sensor_2_flow": 8.0,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": 4.0,
+    "relative_imbalance_pct": 33.3,
+    "representative_flow_l_per_min": null
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 0,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 3,
+    "sensor_imbalance_detected": true,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 2,
+    "category": "SENSOR_CALIBRATION_CHECK",
+    "action": "Inspect pinwheels on both YF-S201 sensors for mechanical binding or scale; cross-calibrate pulse factors against timed volumetric bucket test.",
+    "rationale": "Conservation of mass requires identical flow on an unbranched pipe; discrepancy indicates measurement error rather than validated obstruction.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "reference_time": "2026-10-16T12:00:00+00:00",
+  "flow_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "LIVE_TELEMETRY",
+    "flow_m3h": 33.0,
+    "predicted_flow_m3h": 32.8,
+    "anomaly_score": 0.4,
+    "persistence_hours": 0
+  },
+  "tank_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "SIMULATED_HYDRAULIC_MODEL",
+    "current_level_m": 5.5,
+    "forecast_5m": 5.48,
+    "forecast_15m": 5.45,
+    "forecast_30m": 5.4,
+    "inflow_m3h": 32.0,
+    "outflow_m3h": 33.0,
+    "is_simulated": true
+  },
+  "wq_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "FIELD_GRAB_SAMPLE",
+    "station_id": "STATION_07",
+    "uncollected_remark": "Water level is too low to collect sample"
+  }
+}

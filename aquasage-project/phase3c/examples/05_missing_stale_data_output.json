@@ -1,0 +1,63 @@
+{
+  "decision_id": "DEC-9FA54C26",
+  "timestamp": "2026-10-16T12:00:00+00:00",
+  "overall_severity": "ADVISORY",
+  "system_status": "DEGRADED_TELEMETRY",
+  "compounded_escalation_active": false,
+  "escalation_reasons": [],
+  "subsystems": {
+    "flow_leak_detection": {
+      "status": "STALE",
+      "severity": "ADVISORY",
+      "source_type": "LIVE_TELEMETRY",
+      "age_minutes": 45.0,
+      "message": "Flow telemetry is stale (45.0 min old, limit 30 min)."
+    },
+    "tank_level_forecasting": {
+      "status": "INSUFFICIENT_DATA",
+      "severity": "INFO",
+      "source_type": null,
+      "message": "No tank telemetry provided for evaluation."
+    },
+    "water_quality_assessment": {
+      "status": "STALE",
+      "severity": "ADVISORY",
+      "source_type": "FIELD_GRAB_SAMPLE",
+      "station_id": "STATION_05",
+      "evidence": {
+        "station_id": "STATION_05",
+        "sample_age_days": 26.1,
+        "max_sample_age_days": 14,
+        "source_type": "FIELD_GRAB_SAMPLE",
+        "note": "Historical water quality sample is expired. Cannot evaluate active water safety from stale readings. Fresh grab sample required.",
+        "stale_disclaimer": "Historical water quality sample is expired. Cannot confirm active emergency from stale grab sample; fresh grab sample required."
+      },
+      "message": "Water quality grab sample is stale (26.1 days old, validity window 14 days). Dispatch field technician for fresh sampling."
+    }
+  },
+  "consolidated_evidence": [
+    "FLOW: Flow telemetry is stale (45.0 min old, limit 30 min).",
+    "TANK: No tank telemetry provided for evaluation.",
+    "WATER_QUALITY: Water quality grab sample is stale (26.1 days old, validity window 14 days). Dispatch field technician for fresh sampling."
+  ],
+  "prioritized_operator_actions": [
+    {
+      "priority": 1,
+      "category": "COMMUNICATION_WATCH",
+      "action": "Inspect telemetry gateway transmission health for flow_leak_detection; readings exceed staleness tolerance.",
+      "rationale": "Flow telemetry is stale (45.0 min old, limit 30 min).",
+      "safety_critical": false,
+      "requires_human_confirmation": false,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    },
+    {
+      "priority": 2,
+      "category": "WATER_QUALITY_RESAMPLING",
+      "action": "Dispatch field technician to collect fresh grab sample at STATION_05; existing record is expired (26.1 days old).",
+      "rationale": "Water quality grab sample is stale (26.1 days old, validity window 14 days). Dispatch field technician for fresh sampling.",
+      "safety_critical": false,
+      "requires_human_confirmation": false,
+      "execution_mode": "DECISION_SUPPORT_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "audit_target": "Phase 2 Pipeline and Baseline Evaluation",
+  "area": "Area_1",
+  "findings": {
+    "1_reproducibility": {
+      "status": "Verified",
+      "details": "Phase 2 baseline evaluation reproduces with exact precision (0.7646), recall (0.9167), and F1 (0.8338) when using the exact same evaluation configuration."
+    },
+    "2_label_circularity": {
+      "status": "Identified Pseudo-Ground-Truth Dependency",
+      "details": "The retrospective labeling pipeline (LeakDetector in preprocessing/leak_detector.py) uses a post-repair reference baseline and two-sample t-test / changepoint detection to walk backwards from repair dates and mark when flow was elevated. The timing of the repair event (Known Fix) is derived from genuine utility logs, but the exact start date and duration of the leak period are algorithmically inferred from the flow signal itself. Evaluating flow anomaly detectors against flow-inferred labels introduces partial circularity that must be acknowledged as label uncertainty."
+    },
+    "3_validation_threshold_isolation": {
+      "status": "Verified Safe",
+      "details": "The threshold was calibrated strictly on the normal validation set (2024-03-31 to 2024-06-02) without using any test data."
+    },
+    "4_temporal_ordering_and_imputation": {
+      "status": "Verified Safe",
+      "details": "Chronological order is strictly preserved: Train (2022-07 to 2023-07) < Val (2024-03 to 2024-06) < Test (2024-06 to 2025-02). 99.94% of missing gaps were <= 2 hours and imputed linearly; large gaps were imputed with diurnal seasonal profiles. Preprocessing does not leak future test observations into training."
+    },
+    "5_root_cause_of_false_alarms": {
+      "status": "Discovered Seasonal and Network Baseline Drift",
+      "details": "In the test set, July-September 2024 is 100% active leak hours with mean flow reaching 60 m3/h. In January 2025, when flow returned to normal winter levels (36.5 m3/h), the false alarm rate was 0.0%. However, in Autumn 2024 (October-December), the un-flagged normal hours had a mean flow of ~42 m3/h, which is ~9 m3/h higher than the Train baseline (32.87 m3/h) and Val baseline (35.84 m3/h). This seasonal/annual baseline shift caused a static diurnal model to trigger false alarms on 29.58% of normal test hours. The dynamic LSTM predictor successfully absorbs network dynamics, reducing false positive hours from 1,161 to 345 (FAR reduced to 11.07%)."
+    }
+  }
+}

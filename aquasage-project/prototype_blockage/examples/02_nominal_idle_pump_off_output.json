@@ -1,0 +1,35 @@
+{
+  "status": "NOMINAL_IDLE",
+  "severity": "INFO",
+  "reason": "System idle: pump inactive, flow is 0.00 L/min.",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:00+00:00",
+    "sensor_1_flow": 0.0,
+    "sensor_2_flow": 0.0,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_OFF",
+    "flow_difference_l_per_min": 0.0,
+    "relative_imbalance_pct": 0.0,
+    "representative_flow_l_per_min": 0.0
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 1,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 0,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 3,
+    "category": "ROUTINE_STANDBY",
+    "action": "Maintain standard bench standby monitoring; pump is currently inactive.",
+    "rationale": "Zero or trace flow conforms to powered-down pump state.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

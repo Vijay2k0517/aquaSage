@@ -1,0 +1,35 @@
+{
+  "status": "UNSTABLE_TELEMETRY",
+  "severity": "ADVISORY",
+  "reason": "High-frequency pulse jitter or hydraulic surging detected (S1 standard deviation=5.56 L/min).",
+  "is_simulated": true,
+  "simulation_disclaimer": "Hardware prototype simulated telemetry (YF-S201 bench circuit). Not validated against live physical municipal blockage events.",
+  "input_readings": {
+    "timestamp": "2026-10-18T12:00:08+00:00",
+    "sensor_1_flow": 14.0,
+    "sensor_2_flow": 12.0,
+    "flow_unit": "L/min",
+    "pump_status": "PUMP_RUNNING",
+    "flow_difference_l_per_min": null,
+    "relative_imbalance_pct": null,
+    "representative_flow_l_per_min": null
+  },
+  "evidence": {
+    "baseline_flow_l_per_min": 12.0,
+    "low_flow_threshold_l_per_min": 6.0,
+    "low_flow_persistence_cycles": 0,
+    "required_persistence_cycles": 5,
+    "imbalance_persistence_cycles": 3,
+    "sensor_imbalance_detected": false,
+    "sustained_low_flow_detected": false
+  },
+  "recommended_human_action": {
+    "priority": 2,
+    "category": "SIGNAL_STABILIZATION",
+    "action": "Inspect pump suction for air entrapment/cavitation; check sensor grounding to eliminate electrical EMI.",
+    "rationale": "Flow readings exhibit erratic variance exceeding stability tolerance.",
+    "safety_critical": false,
+    "requires_human_confirmation": true,
+    "execution_mode": "DECISION_SUPPORT_ONLY"
+  }
+}

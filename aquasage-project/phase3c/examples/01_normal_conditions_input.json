@@ -1,0 +1,32 @@
+{
+  "reference_time": "2026-10-16T12:00:00+00:00",
+  "flow_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "LIVE_TELEMETRY",
+    "flow_m3h": 32.5,
+    "predicted_flow_m3h": 32.0,
+    "anomaly_score": 0.5,
+    "persistence_hours": 0
+  },
+  "tank_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "SIMULATED_HYDRAULIC_MODEL",
+    "current_level_m": 6.2,
+    "forecast_5m": 6.18,
+    "forecast_15m": 6.15,
+    "forecast_30m": 6.1,
+    "inflow_m3h": 35.0,
+    "outflow_m3h": 35.0,
+    "is_simulated": true
+  },
+  "wq_data": {
+    "timestamp": "2026-10-16T12:00:00+00:00",
+    "source_type": "FIELD_GRAB_SAMPLE",
+    "station_id": "STATION_01",
+    "ph": 7.4,
+    "turbidity_ntu": 1.2,
+    "dissolved_oxygen_mg_l": 8.2,
+    "conductivity_us_cm": 450.0,
+    "tds_mg_l": 220.0
+  }
+}

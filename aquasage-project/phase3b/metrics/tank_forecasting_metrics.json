@@ -1,0 +1,74 @@
+[
+  {
+    "horizon": "5min",
+    "horizon_minutes": 5,
+    "model": "Persistence (Current Level)",
+    "mae_meters": 0.06,
+    "rmse_meters": 0.0753,
+    "mape_percent": 1.51
+  },
+  {
+    "horizon": "5min",
+    "horizon_minutes": 5,
+    "model": "Linear Drift Extrapolation",
+    "mae_meters": 0.0985,
+    "rmse_meters": 0.1235,
+    "mape_percent": 2.53
+  },
+  {
+    "horizon": "5min",
+    "horizon_minutes": 5,
+    "model": "Hydraulic AR Forecaster",
+    "mae_meters": 0.0481,
+    "rmse_meters": 0.0615,
+    "mape_percent": 1.55
+  },
+  {
+    "horizon": "15min",
+    "horizon_minutes": 15,
+    "model": "Persistence (Current Level)",
+    "mae_meters": 0.0827,
+    "rmse_meters": 0.1025,
+    "mape_percent": 1.89
+  },
+  {
+    "horizon": "15min",
+    "horizon_minutes": 15,
+    "model": "Linear Drift Extrapolation",
+    "mae_meters": 0.2044,
+    "rmse_meters": 0.2565,
+    "mape_percent": 5.26
+  },
+  {
+    "horizon": "15min",
+    "horizon_minutes": 15,
+    "model": "Hydraulic AR Forecaster",
+    "mae_meters": 0.0527,
+    "rmse_meters": 0.0697,
+    "mape_percent": 1.91
+  },
+  {
+    "horizon": "30min",
+    "horizon_minutes": 30,
+    "model": "Persistence (Current Level)",
+    "mae_meters": 0.1336,
+    "rmse_meters": 0.1636,
+    "mape_percent": 2.72
+  },
+  {
+    "horizon": "30min",
+    "horizon_minutes": 30,
+    "model": "Linear Drift Extrapolation",
+    "mae_meters": 0.3723,
+    "rmse_meters": 0.467,
+    "mape_percent": 9.55
+  },
+  {
+    "horizon": "30min",
+    "horizon_minutes": 30,
+    "model": "Hydraulic AR Forecaster",
+    "mae_meters": 0.0611,
+    "rmse_meters": 0.0853,
+    "mape_percent": 2.38
+  }
+]

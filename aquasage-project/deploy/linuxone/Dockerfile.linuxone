@@ -1,0 +1,60 @@
+# ==============================================================================
+# AquaSage Backend - IBM LinuxONE (s390x / IBM Z) Container Specification
+# Target Architecture: linux/s390x
+# Base OS: Debian Bookworm (Python 3.11-slim)
+# Acceleration: OpenMP multithreading for IBM Snap ML
+# ==============================================================================
+
+FROM --platform=linux/s390x python:3.11-slim-bookworm AS base
+
+# Prevent Python from writing .pyc and enable unbuffered streaming
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    DEBIAN_FRONTEND=noninteractive \
+    OMP_NUM_THREADS=4 \
+    PORT=8000 \
+    ENVIRONMENT=production
+
+WORKDIR /app
+
+# Install OS libraries required for s390x C-extensions and OpenMP acceleration
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libgomp1 \
+    libopenblas-dev \
+    libpq-dev \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pinned dependencies
+COPY deploy/linuxone/requirements-linuxone.txt .
+RUN pip install --no-cache-dir -r requirements-linuxone.txt
+
+# Copy backend application source
+COPY Aquasage/backend /app/backend
+
+# Copy trained model artifacts and reports
+COPY models /app/models
+COPY reports /app/reports
+COPY prototype_blockage /app/prototype_blockage
+COPY phase3a /app/phase3a
+
+WORKDIR /app/backend
+
+# Configure non-root service user for production isolation
+RUN useradd -m -u 1001 aquasage && \
+    chown -R aquasage:aquasage /app
+
+USER aquasage
+
+EXPOSE 8000
+
+# Container health and readiness probe
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:8000/api/v1/health/ready || exit 1
+
+# Production WSGI/ASGI entrypoint with 4 Uvicorn workers
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]

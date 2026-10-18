@@ -1,0 +1,12 @@
+{
+  "model_name": "FlowLSTM",
+  "seq_len": 24,
+  "hidden_size": 32,
+  "num_layers": 2,
+  "dropout": 0.2,
+  "learning_rate": 0.001,
+  "best_epoch": 25,
+  "best_val_mse": 0.06198,
+  "runtime_seconds": 21.54,
+  "seed": 42
+}

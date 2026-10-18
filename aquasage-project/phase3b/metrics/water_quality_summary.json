@@ -1,0 +1,106 @@
+{
+  "dataset": "WQ Sampling Data-2024and2025.csv",
+  "total_samples_analyzed": 29,
+  "uncollected_samples_isolated": 1,
+  "uncollected_details": [
+    {
+      "date": "3/11/2025",
+      "station": "FFX 2",
+      "temperature_c": "Water level is too low to collect sample",
+      "turbidity_ntu": NaN,
+      "conductivity_us_cm": NaN,
+      "ph": NaN,
+      "dissolved_oxygen_mg_l": NaN,
+      "tds_mg_l": NaN,
+      "salinity_ppt": NaN
+    }
+  ],
+  "parameter_profiling": {
+    "temperature_c": {
+      "count_valid": 29,
+      "count_missing": 0,
+      "missing_percent": 0.0,
+      "mean": 17.57,
+      "std": 6.1,
+      "min": 5.85,
+      "median": 16.8,
+      "max": 26.7
+    },
+    "turbidity_ntu": {
+      "count_valid": 29,
+      "count_missing": 0,
+      "missing_percent": 0.0,
+      "mean": 18.81,
+      "std": 10.08,
+      "min": 4.0,
+      "median": 18.0,
+      "max": 35.4
+    },
+    "conductivity_us_cm": {
+      "count_valid": 29,
+      "count_missing": 0,
+      "missing_percent": 0.0,
+      "mean": 568.68,
+      "std": 405.37,
+      "min": 151.7,
+      "median": 415.0,
+      "max": 1736.3
+    },
+    "ph": {
+      "count_valid": 29,
+      "count_missing": 0,
+      "missing_percent": 0.0,
+      "mean": 6.46,
+      "std": 0.83,
+      "min": 5.01,
+      "median": 6.04,
+      "max": 8.1
+    },
+    "dissolved_oxygen_mg_l": {
+      "count_valid": 29,
+      "count_missing": 0,
+      "missing_percent": 0.0,
+      "mean": 5.57,
+      "std": 3.14,
+      "min": 1.67,
+      "median": 5.85,
+      "max": 11.4
+    },
+    "tds_mg_l": {
+      "count_valid": 17,
+      "count_missing": 12,
+      "missing_percent": 41.4,
+      "mean": 234.65,
+      "std": 147.39,
+      "min": 67.35,
+      "median": 195.5,
+      "max": 720.0
+    },
+    "salinity_ppt": {
+      "count_valid": 17,
+      "count_missing": 12,
+      "missing_percent": 41.4,
+      "mean": 0.17,
+      "std": 0.11,
+      "min": 0.08,
+      "median": 0.14,
+      "max": 0.54
+    }
+  },
+  "regulatory_standards_applied": {
+    "ph_acceptable_range": [
+      6.5,
+      8.5
+    ],
+    "turbidity_max_ntu": 5.0,
+    "dissolved_oxygen_min_mg_l": 5.0,
+    "conductivity_max_us_cm": 1000.0
+  },
+  "alert_summary": {
+    "normal_count": 0,
+    "advisory_count": 3,
+    "elevated_count": 25,
+    "critical_count": 1
+  },
+  "scientific_disclaimer": "Small dataset of N=29 samples across 9 stations. Strictly exploratory for sensor anomaly prototyping; does NOT certify potable safety."
+}
